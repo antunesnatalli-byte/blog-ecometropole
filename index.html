@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoMetrópole - Urbanismo do Futuro</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
+  <header>
+    <div class="header-container">
+      <h1>EcoMetrópole</h1>
+      <p class="slogan">Desvendando as cidades de amanhã, hoje.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p>Bem-vindo ao EcoMetrópole. Um espaço para explorar como a tecnologia, a arquitetura verde e o design inteligente estão moldando o futuro das nossas cidades. Se você é fascinado por inovação urbana, está no lugar certo.</p>
+    </section>
+
+    <div class="filters">
+      <button class="filter-btn active" data-category="todos">Todos</button>
+      <button class="filter-btn" data-category="energia">Energia</button>
+      <button class="filter-btn" data-category="mobilidade">Mobilidade</button>
+      <button class="filter-btn" data-category="iot">IoT</button>
+    </div>
+
+    <div id="blog-posts" class="posts-grid"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 EcoMetrópole. Feito com 🌱 e Tecnologia.</p>
+  </footer>
+
+  <script type="module">
+    import { posts } from './posts.js';
+
+    function renderizarPosts(listaDePosts) {
+      const container = document.getElementById("blog-posts");
+      container.innerHTML = ""; 
+
+      if(listaDePosts.length === 0) {
+        container.innerHTML = "<p>Nenhum artigo encontrado.</p>";
+        return;
+      }
+
+      listaDePosts.forEach(post => {
+        const postHTML = `
+          <article class="post-card">
+            <span class="tag tag-${post.category}">${post.category.toUpperCase()}</span>
+            <h2>${post.title}</h2>
+            <p>${post.desc}</p>
+            <button class="btn-read">Ler artigo completo</button>
+          </article>
+        `;
+        container.innerHTML += postHTML;
+      });
+    }
+
+    const botoes = document.querySelectorAll('.filter-btn');
+    botoes.forEach(botao => {
+      botao.addEventListener('click', () => {
+        botoes.forEach(b => b.classList.remove('active'));
+        botao.classList.add('active');
+
+        const categoria = botao.getAttribute('data-category');
+        if (categoria === 'todos') {
+          renderizarPosts(posts);
+        } else {
+          const filtrados = posts.filter(p => p.category === categoria);
+          renderizarPosts(filtrados);
+        }
+      });
+    });
+
+    renderizarPosts(posts);
+  </script>
+</body>
+</html>
