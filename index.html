@@ -1,82 +1,348 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EcoMetrópole - Urbanismo do Futuro</title>
+
+  <title>AgroFuturo - Tecnologia e Inovação no Campo</title>
+
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
 
   <header>
+
     <div class="header-container">
-      <h1>EcoMetrópole</h1>
-      <p class="slogan">Desvendando as cidades de amanhã, hoje.</p>
+
+      <div class="logo">
+        🌱
+      </div>
+
+      <h1>AgroFuturo</h1>
+
+      <p class="slogan">
+        Tecnologia, inovação e sustentabilidade no campo.
+      </p>
+
     </div>
+
   </header>
 
+
   <main>
+
     <section class="hero">
-      <p>Bem-vindo ao EcoMetrópole. Um espaço para explorar como a tecnologia, a arquitetura verde e o design inteligente estão moldando o futuro das nossas cidades. Se você é fascinado por inovação urbana, está no lugar certo.</p>
+
+      <div class="hero-content">
+
+        <span class="hero-tag">
+          🌾 BLOG DE AGROPECUÁRIA
+        </span>
+
+        <h2>
+          O futuro do campo começa com inovação.
+        </h2>
+
+        <p>
+          Bem-vindo ao AgroFuturo! Aqui você encontra informações,
+          curiosidades e conteúdos sobre agricultura, pecuária,
+          tecnologia e sustentabilidade no campo.
+        </p>
+
+      </div>
+
     </section>
 
-    <div class="filters">
-      <button class="filter-btn active" data-category="todos">Todos</button>
-      <button class="filter-btn" data-category="energia">Energia</button>
-      <button class="filter-btn" data-category="mobilidade">Mobilidade</button>
-      <button class="filter-btn" data-category="iot">IoT</button>
-    </div>
 
-    <div id="blog-posts" class="posts-grid"></div>
+    <section class="categorias">
+
+      <h2>Explore nossos conteúdos</h2>
+
+      <div class="filters">
+
+        <button class="filter-btn active" data-category="todos">
+          Todos
+        </button>
+
+        <button class="filter-btn" data-category="agricultura">
+          🌾 Agricultura
+        </button>
+
+        <button class="filter-btn" data-category="pecuaria">
+          🐄 Pecuária
+        </button>
+
+        <button class="filter-btn" data-category="tecnologia">
+          🚜 Tecnologia
+        </button>
+
+        <button class="filter-btn" data-category="sustentabilidade">
+          🌱 Sustentabilidade
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div id="blog-posts" class="posts-grid"></div>
+
+    </section>
+
   </main>
 
+
   <footer>
-    <p>&copy; 2026 EcoMetrópole. Feito com 🌱 e Tecnologia.</p>
+
+    <p>
+      © 2026 AgroFuturo
+    </p>
+
+    <p>
+      Tecnologia, conhecimento e inovação para o campo 🌱
+    </p>
+
   </footer>
 
+
   <script type="module">
+
     import { posts } from './posts.js';
 
-    function renderizarPosts(listaDePosts) {
-      const container = document.getElementById("blog-posts");
-      container.innerHTML = ""; 
 
-      if(listaDePosts.length === 0) {
-        container.innerHTML = "<p>Nenhum artigo encontrado.</p>";
+    function renderizarPosts(listaDePosts) {
+
+      const container = document.getElementById("blog-posts");
+
+      container.innerHTML = "";
+
+
+      if (listaDePosts.length === 0) {
+
+        container.innerHTML = `
+          <p class="nenhum-post">
+            Nenhum artigo encontrado nessa categoria.
+          </p>
+        `;
+
         return;
       }
 
+
       listaDePosts.forEach(post => {
+
         const postHTML = `
+
           <article class="post-card">
-            <span class="tag tag-${post.category}">${post.category.toUpperCase()}</span>
-            <h2>${post.title}</h2>
-            <p>${post.desc}</p>
-            <button class="btn-read">Ler artigo completo</button>
+
+            <img
+              src="${post.image}"
+              alt="${post.title}"
+              class="post-image"
+            >
+
+            <div class="post-content">
+
+              <span class="tag tag-${post.category}">
+                ${post.category.toUpperCase()}
+              </span>
+
+              <h2>
+                ${post.title}
+              </h2>
+
+              <p class="artigo-autor">
+                Por: ${post.author}
+              </p>
+
+              <p class="post-description">
+                ${post.desc}
+              </p>
+
+              <p class="post-full-content">
+                ${post.content}
+              </p>
+
+
+              <div class="interacoes">
+
+                <button class="reaction-btn">
+                  ❤️ <span>0</span>
+                </button>
+
+                <button class="reaction-btn">
+                  👍 <span>0</span>
+                </button>
+
+              </div>
+
+
+              <button class="btn-read">
+                Ler artigo completo
+              </button>
+
+            </div>
+
           </article>
+
         `;
+
         container.innerHTML += postHTML;
+
       });
+
+
+      configurarCurtidas();
+
+      configurarBotoesDeLeitura();
+
     }
 
+
+    /*
+      FILTROS
+    */
+
     const botoes = document.querySelectorAll('.filter-btn');
+
+
     botoes.forEach(botao => {
+
       botao.addEventListener('click', () => {
-        botoes.forEach(b => b.classList.remove('active'));
+
+        botoes.forEach(b => {
+          b.classList.remove('active');
+        });
+
         botao.classList.add('active');
 
-        const categoria = botao.getAttribute('data-category');
+
+        const categoria =
+          botao.getAttribute('data-category');
+
+
         if (categoria === 'todos') {
+
           renderizarPosts(posts);
+
         } else {
-          const filtrados = posts.filter(p => p.category === categoria);
+
+          const filtrados =
+            posts.filter(post => post.category === categoria);
+
           renderizarPosts(filtrados);
+
         }
+
       });
+
     });
 
+
+    /*
+      SISTEMA DE CURTIDAS
+    */
+
+    function configurarCurtidas() {
+
+      const botoesReacao =
+        document.querySelectorAll('.reaction-btn');
+
+
+      botoesReacao.forEach(botao => {
+
+        let curtiu = false;
+
+
+        botao.addEventListener('click', () => {
+
+          const contador =
+            botao.querySelector('span');
+
+
+          if (curtiu === false) {
+
+            contador.textContent++;
+
+            curtiu = true;
+
+            botao.classList.add('curtiu');
+
+          } else {
+
+            contador.textContent--;
+
+            curtiu = false;
+
+            botao.classList.remove('curtiu');
+
+          }
+
+        });
+
+      });
+
+    }
+
+
+    /*
+      BOTÃO LER ARTIGO
+    */
+
+    function configurarBotoesDeLeitura() {
+
+      const botoesLeitura =
+        document.querySelectorAll('.btn-read');
+
+
+      botoesLeitura.forEach(botao => {
+
+        botao.addEventListener('click', () => {
+
+          const artigo =
+            botao.closest('.post-card');
+
+
+          const conteudo =
+            artigo.querySelector('.post-full-content');
+
+
+          conteudo.classList.toggle('mostrar');
+
+
+          if (conteudo.classList.contains('mostrar')) {
+
+            botao.textContent = "Fechar artigo";
+
+          } else {
+
+            botao.textContent = "Ler artigo completo";
+
+          }
+
+        });
+
+      });
+
+    }
+
+
+    /*
+      INICIAR BLOG
+    */
+
     renderizarPosts(posts);
+
   </script>
+
 </body>
+
 </html>
