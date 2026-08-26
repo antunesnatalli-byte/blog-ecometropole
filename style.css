@@ -1,141 +1,198 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #F8F9FA;
-  color: #212121;
+
+  background-color: #f4f7f2;
+
+  color: #243024;
+
   line-height: 1.6;
 }
 
+
+/* =========================
+   CABEÇALHO
+========================= */
+
 header {
-  background-color: #ffffff;
-  border-bottom: 1px solid #eef2f3;
-  padding: 40px 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #164a24,
+      #287a35
+    );
+
+  color: white;
+
+  padding: 45px 20px;
+
   text-align: center;
+
+  border-bottom: 5px solid #8bc34a;
 }
+
+
+.header-container {
+
+  max-width: 1100px;
+
+  margin: auto;
+}
+
+
+.logo {
+
+  font-size: 45px;
+
+  margin-bottom: 5px;
+}
+
 
 header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #111;
+
+  font-size: 3rem;
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
 }
 
+
 .slogan {
-  color: #666;
-  font-size: 1rem;
+
+  color: #d9f2d1;
+
+  font-size: 1.05rem;
+
   margin-top: 5px;
 }
 
+
+/* =========================
+   CONTEÚDO PRINCIPAL
+========================= */
+
 main {
+
   max-width: 1100px;
+
   margin: 0 auto;
+
   padding: 40px 20px;
 }
 
+
+/* =========================
+   HERO
+========================= */
+
 .hero {
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid #eef2f3;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #edf7e9
+    );
+
+  border-radius: 18px;
+
+  padding: 45px;
+
   margin-bottom: 40px;
-  font-size: 1.1rem;
-  color: #444;
+
+  border: 1px solid #dce8d8;
+
+  box-shadow:
+    0 5px 20px rgba(0, 0, 0, 0.04);
 }
 
-.filters {
-  display: flex;
-  gap: 10px;
+
+.hero-tag {
+
+  display: inline-block;
+
+  background-color: #dff1d8;
+
+  color: #287a35;
+
+  font-size: 0.75rem;
+
+  font-weight: 800;
+
+  padding: 6px 12px;
+
+  border-radius: 20px;
+
+  margin-bottom: 15px;
+}
+
+
+.hero h2 {
+
+  font-size: 2.2rem;
+
+  color: #173b1e;
+
+  margin-bottom: 12px;
+}
+
+
+.hero p {
+
+  color: #526052;
+
+  font-size: 1.05rem;
+
+  max-width: 800px;
+}
+
+
+/* =========================
+   CATEGORIAS
+========================= */
+
+.categorias {
+
   margin-bottom: 30px;
+
+  text-align: center;
+}
+
+
+.categorias h2 {
+
+  color: #173b1e;
+
+  margin-bottom: 20px;
+}
+
+
+.filters {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
   justify-content: center;
 }
 
+
 .filter-btn {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  padding: 8px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-family: inherit;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
-}
 
-.filter-btn:hover, .filter-btn.active {
-  background-color: #00E676;
-  border-color: #00E676;
-  color: #212121;
-}
+  background-color: white;
 
-.posts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-}
-
-.post-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-  border: 1px solid #eef2f3;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  transition: transform 0.2s ease;
-}
-
-.post-card:hover {
-  transform: translateY(-4px);
-}
-
-.post-card h2 {
-  font-size: 1.4rem;
-  margin: 15px 0 10px 0;
-  color: #111;
-}
-
-.post-card p {
-  color: #555;
-  font-size: 0.95rem;
-  flex-grow: 1;
-}
-
-.tag {
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 4px;
-}
-.tag-energia { background-color: #E8F5E9; color: #2E7D32; }
-.tag-mobilidade { background-color: #E3F2FD; color: #1565C0; }
-.tag-iot { background-color: #F3E5F5; color: #6A1B9A; }
-
-.btn-read {
-  background: none;
-  border: none;
-  color: #007bff;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-top: 20px;
-  padding: 0;
-}
-
-.btn-read:hover {
-  text-decoration: underline;
-}
-
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  color: #888;
-  font-size: 0.9rem;
-  border-top: 1px solid #eef2f3;
-  background-color: #ffffff;
-  margin-top: 60px;
-}
+  border:
