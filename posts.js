@@ -1,61 +1,60 @@
-export const posts = [
-  {
-    id: 1,
-    title: "Agricultura de Precisão: Tecnologia no Campo",
-    category: "agricultura",
-    author: "Equipe AgroFuturo",
-    image: "imagens/agricultura.jpg",
-    desc: "Como sensores, GPS e tecnologia ajudam o produtor rural.",
-    content: "A agricultura de precisão utiliza tecnologias como GPS, sensores e sistemas de monitoramento para melhorar a produção agrícola. Essas ferramentas ajudam o produtor a identificar as necessidades do solo, controlar máquinas e utilizar recursos de maneira mais eficiente."
-  },
+const posts = [
+{
+titulo: "A importância da tecnologia no agronegócio",
+imagem: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80",
+texto: "A tecnologia está transformando o agronegócio, ajudando produtores a aumentar a produtividade, reduzir custos e cuidar melhor dos recursos naturais."
+},
 
-  {
-    id: 2,
-    title: "A Importância da Pecuária Brasileira",
-    category: "pecuaria",
-    author: "Equipe AgroFuturo",
-    image: "imagens/pecuaria.jpg",
-    desc: "A pecuária possui grande importância para a economia e alimentação.",
-    content: "A pecuária é uma das atividades mais importantes do setor agropecuário brasileiro. A criação de bovinos, suínos, aves e outros animais contribui para o abastecimento de alimentos, geração de empregos e movimentação da economia."
-  },
+{
+    titulo: "Agricultura sustentável",
+    imagem: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80",
+    texto: "A agricultura sustentável busca produzir alimentos de forma eficiente, preservando o solo, a água e o meio ambiente para as próximas gerações."
+},
 
-  {
-    id: 3,
-    title: "Drones: Os Olhos do Produtor no Campo",
-    category: "tecnologia",
-    author: "Equipe AgroFuturo",
-    image: "imagens/drone.jpg",
-    desc: "Drones podem auxiliar no monitoramento das plantações.",
-    content: "Os drones estão sendo utilizados no campo para acompanhar plantações, identificar áreas que precisam de atenção e produzir imagens aéreas. Essa tecnologia permite que o produtor tenha uma visão mais ampla da propriedade."
-  },
+{
+    titulo: "A importância do solo para a produção",
+    imagem: "https://images.unsplash.com/photo-1592982537447-6f2a6a0a6f7a?auto=format&fit=crop&w=800&q=80",
+    texto: "Um solo saudável é fundamental para uma boa produção agrícola. O manejo correto ajuda a preservar nutrientes e aumentar a produtividade."
+},
 
-  {
-    id: 4,
-    title: "Sustentabilidade na Produção Rural",
-    category: "sustentabilidade",
-    author: "Equipe AgroFuturo",
-    image: "imagens/sustentabilidade.jpg",
-    desc: "Práticas sustentáveis podem ajudar a preservar os recursos naturais.",
-    content: "A sustentabilidade no campo envolve práticas que buscam equilibrar produção e conservação dos recursos naturais. O cuidado com o solo, a água e a biodiversidade é importante para garantir a continuidade da produção rural."
-  },
+{
+    titulo: "Máquinas agrícolas modernas",
+    imagem: "https://images.unsplash.com/photo-1530507629858-e4977d30e9e0?auto=format&fit=crop&w=800&q=80",
+    texto: "As máquinas agrícolas modernas tornam o trabalho no campo mais rápido e eficiente, contribuindo para uma produção cada vez mais tecnológica."
+},
 
-  {
-    id: 5,
-    title: "Inteligência Artificial no Agronegócio",
-    category: "tecnologia",
-    author: "Equipe AgroFuturo",
-    image: "imagens/ia.jpg",
-    desc: "A inteligência artificial começa a transformar as decisões no campo.",
-    content: "A inteligência artificial pode analisar grandes quantidades de dados e auxiliar produtores na tomada de decisões. No agronegócio, ela pode ser utilizada para analisar plantações, prever problemas e melhorar processos."
-  },
+{
+    titulo: "O papel da água na agricultura",
+    imagem: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=800&q=80",
+    texto: "A água é um dos principais recursos utilizados na agricultura. Por isso, seu uso consciente é essencial para garantir uma produção sustentável."
+},
 
-  {
-    id: 6,
-    title: "Irrigação Inteligente e Economia de Água",
-    category: "sustentabilidade",
-    author: "Equipe AgroFuturo",
-    image: "imagens/irrigacao.jpg",
-    desc: "Tecnologias podem ajudar a utilizar a água de maneira mais eficiente.",
-    content: "Sistemas de irrigação inteligente utilizam informações sobre o solo e as condições climáticas para determinar quando e quanto irrigar. Dessa forma, é possível evitar desperdícios e melhorar o aproveitamento da água."
-  }
+{
+    titulo: "Inovação no campo",
+    imagem: "https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&fit=crop&w=800&q=80",
+    texto: "Novas tecnologias, sensores, drones e sistemas inteligentes estão mudando a maneira como os produtores acompanham suas plantações."
+}
+
+
 ];
+
+const container = document.getElementById("posts-container");
+
+posts.forEach(function(post) {
+
+const article = document.createElement("article");
+
+article.innerHTML = `
+    <img src="${post.imagem}" alt="${post.titulo}">
+
+    <h2>${post.titulo}</h2>
+
+    <p>${post.texto}</p>
+
+    <a href="#">Leia mais</a>
+`;
+
+container.appendChild(article);
+
+
+});
