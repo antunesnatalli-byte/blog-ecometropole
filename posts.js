@@ -1,12 +1,28 @@
-// Exemplo de script para gerenciar ou carregar posts dinamicamente no Blog Agrofuturo
+// Script de gerenciamento de interações e posts do Blog Agrofuturo
 console.log("Script de posts do Agrofuturo carregado com sucesso!");
 
-const novosPosts = [
+const postsAgrofuturo = [
     {
         titulo: "Inteligência Artificial na Colheita",
-        descricao: "Como algoritmos de machine learning preveem o momento ideal para a colheita de grãos.",
-        imagem: "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&w=500&q=60"
+        descricao: "Como algoritmos de machine learning preveem o momento ideal para a colheita de grãos."
     }
 ];
 
-// Função futura para renderizar posts colaborativos adicionais, se necessário.
+// Selecionando o botão de alternância de tema na página
+const btnTemaEscuro = document.querySelector(".btn-tema-escuro");
+
+// Adicionando o evento de clique que chama a função de mudança de tema
+if (btnTemaEscuro) {
+    btnTemaEscuro.addEventListener("click", mudaTema);
+}
+
+// Função responsável por alternar a classe do tema escuro no body
+function mudaTema() {
+    const corpoPagina = document.body;
+
+    if (corpoPagina.classList.contains("tema-escuro")) {
+        corpoPagina.classList.remove("tema-escuro");
+    } else {
+        corpoPagina.classList.add("tema-escuro");
+    }
+}
