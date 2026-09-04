@@ -1,20 +1,20 @@
 # 🌱 Blog Agrofuturo
 
-Bem-vindo ao repositório oficial do **Blog Agrofuturo**, um espaço dedicado a debater as inovações tecnológicas, a agricultura de precisão e as práticas sustentáveis que estão moldando o campo.
+Bem-vindo ao repositório oficial do **Blog Agrofuturo**, um espaço dedicado a debater as inovações tecnológicas, agricultura de precisão e práticas sustentáveis no campo.
 
 ## 🚀 Sobre o Projeto
-Este projeto foi desenvolvido durante as aulas práticas de front-end, aplicando conceitos fundamentais de estilização e organização de layouts modernos com **CSS Flexbox**.
+Projeto finalizado aplicando melhorias completas de front-end: organização responsiva com **CSS Flexbox**, suporte a **Variáveis CSS (`:root`)**, botão interativo programado em **JavaScript** para alternância de **Modo Escuro**, além de **transições suaves (`transition`)** e profundidade visual com sombras modernas (`box-shadow`).
 
 ## 🛠️ Tecnologias Utilizadas
-- **HTML5**: Estruturação semântica das páginas.
-- **CSS3**: Estilização avançada, responsividade e uso de **Flexbox** (`display: flex`, `flex-wrap`, `flex: 1 1 25%`, alinhamentos e espaçamentos com `gap`, `margin` e `padding`).
-- **JavaScript**: Manipulação e suporte a interações do blog.
+- **HTML5**: Estruturação semântica e inclusão do botão flutuante.
+- **CSS3**: Variáveis globais, Flexbox avançado, seletor universal para transições (`*`), sombras realistas (`box-shadow`) e estilização de botões específicos por tema.
+- **JavaScript**: Manipulação do DOM e eventos de clique para alternância dinâmica de classes.
 
 ## 📂 Estrutura de Arquivos
-- `index.html`: Página principal do blog.
-- `style.css`: Folha de estilos customizada com Flexbox.
-- `posts.js`: Lógica e dados dinâmicos dos posts.
-- `README.md`: Documentação do projeto.
+- `index.html`: Página principal contendo posts e controle de tema.
+- `style.css`: Folha de estilos completa com paleta de cores, modo escuro e efeitos visuais.
+- `posts.js`: Lógica de dados dos posts e interatividade.
+- `README.md`: Documentação oficial do repositório.
 
 ---
-Desenvolvido em colaboração com a comunidade e colegas de turma para o ecossistema Agrofuturo! 🚜🌾
+Desenvolvido para o ecossistema Agrofuturo! 🚜🌾
